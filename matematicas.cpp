@@ -1,43 +1,67 @@
-// matematicas.cpp
-#include "matematicas.h" // Se incluye a sí mismo
+#include "matematicas.h"
 
-// --- Definiciones (El "cómo") ---
-int sumar(int num1, int num2)
-{
+int sumar( int num1, int num2 ) {
     return num1 + num2;
 }
 
-int restar(int num1, int num2)
-{
-    // TODO agregar validacion para que num1 >= num2, sino cambiar el orden para restar num2 - num1
-    return num1 - num2;
-}
-
-// Ejemplos con arreglos
-int llenarArreglo(int arreglo[], int tamano)
-{
-    for (int i = 0; i < tamano; i++)
-    {
-        arreglo[i] = i + 1; // Llena el arreglo con números del 1 al 10
+int restar( int num1, int num2 ) {
+    if( num1 >= num2 ) {
+        return num1 - num2;
+    } else {
+        return num2 - num1;
     }
-    return 0; // Retorna 0 para indicar éxito
 }
 
-int sumarPares(int arreglo[], int tamano)
-{
+int factorial( int n ) {
+    int i = 1, ans = 1;
+    while( i <= n ) {
+        ans *= i;
+        i = i + 1;
+    }
+    return ans;
+}
+
+int potencia( int base, int exponente ) {
+    if( base == 0 ) {
+        return 1;
+    }
+    int i, ans = 1;
+    for( i = 0; i < exponente; i++ ) {
+            ans *= base;
+    }
+    return ans;
+}
+
+int llenarArreglo( int arreglo[ ], int tamano ) {
+    for( int i = 0; i < tamano; i++ ) {
+        arreglo[ i ] = i + 1;
+    }
+    return 0;
+}
+
+int sumarPares( int arreglo[ ], int tamano ) {
     int suma = 0;
-    for (int i = 0; i < tamano; i += 2)
-    {
-        // Posiciones pares
-        suma += arreglo[i];
+    for( int i = 0; i < tamano; i += 2 ) {
+        suma += arreglo[ i ];
     }
     return suma;
 }
 
-void mostrarArreglo(int arreglo[], int tamano)
-{
-    for (int i = 0; i < tamano; i++)
-    {
-        std::cout << arreglo[i] << " "; // Muestra el elemento en la posición i})
+using std::cout;
+
+void mostrarArreglo( int arreglo[ ], int tamano ) {
+    for( int i = 0; i < tamano; i++ ) {
+        cout << arreglo[ i ] << " ";
     }
 }
+
+int encontrarMax( int arreglo[ ], int tamano ) {
+    int max_number = 0;
+    for( int i = 0; i < tamano; i++ ) {
+        if( max_number < arreglo[ i ] ) {
+            max_number = arreglo[ i ];
+        }
+    }
+    return max_number;
+}
+
