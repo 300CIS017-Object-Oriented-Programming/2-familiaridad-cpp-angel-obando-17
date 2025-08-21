@@ -48,12 +48,15 @@ void probarArreglos( ) {
 
 int main( ) {
     int opcion, resultado, num1, num2, n;
+    int cant = 10, maximo, edad;
+    int arreglo[ cant ];
     do {
         std::cout << " Menú de selección " << std::endl;
         std::cout << "1 - Suma" << std::endl;
         std::cout << "2 - Resta" << std::endl;
         std::cout << "3 - Potencia" << std::endl;
         std::cout << "4 - Factorial" << std::endl;
+        std::cout << "5 - Encontrar el maximo de un arreglo" << std::endl;
         std::cout << "0 - Salir" << std::endl;
         std::cout << "Seleccione una opción" << std::endl;
         std::cin >> opcion;
@@ -106,6 +109,20 @@ int main( ) {
                 std::cin.ignore( 10000, '\n' );
                 resultado = factorial( n );
                 std::cout << "El resultado es: " << resultado << std::endl;
+                break;
+            case 5:
+                std::cout << "Elegiste encontrar el maximo de un arreglo!" << std::endl;
+                llenarArreglo( arreglo, cant );
+                std::cout << "El arreglo es " << std::endl;
+                mostrarArreglo( arreglo, cant );
+                std::cout << std::endl;
+                maximo = encontrarMax( arreglo, cant );
+                std::cout << "El maximo es: " << maximo << std::endl;
+                std::cout << "Ingresa tu edad" << std::endl;
+                std::cin >> edad;
+                std::cin.clear( );
+                std::cin.ignore( 10000, '\n' );
+                std::cout << "Tu edad mas el maximo es:  " << maximo + edad << std::endl;
                 break;
             case 0:
                 std::cout << "Saliendo del programa..." << std::endl;
